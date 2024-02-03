@@ -1,10 +1,10 @@
-name: Dart
+name: Flutter
 
 on:
   push:
-    branches: [ "develop" ] # This will trigger the workflow on push to any branch
+    branches: [ "develop" ]
   pull_request:
-    branches: [ "**" ] # This will trigger the workflow on pull requests to any branch
+    branches: [ "**" ]
 
 jobs:
   build:
@@ -13,13 +13,15 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - uses: dart-lang/setup-dart@9a04e6d73cca37bd455e0608d7e5092f881fd603
+      - uses: subosito/flutter-action@v1
 
       - name: Install dependencies
-        run: dart pub get
+        run: flutter pub get
 
       - name: Analyze project source
-        run: dart analyze
+        run: flutter analyze
+        env:
+          DART_ANALYSIS_OPTIONS: analysis_options.yaml
 
       - name: Run tests
-        run: dart test
+        run: flutter test
