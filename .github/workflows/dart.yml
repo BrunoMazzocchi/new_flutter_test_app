@@ -2,7 +2,7 @@ name: Dart
 
 on:
   push:
-    branches: [ "develop" ] # This will trigger the workflow on push to any branch
+    branches: [ "develop" ] 
   pull_request:
     branches: [ "**" ] # This will trigger the workflow on pull requests to any branch
 
