@@ -18,11 +18,6 @@ jobs:
       - name: Install dependencies
         run: flutter pub get
 
-      - name: Set up .env.dev
-        run: |
-          echo "API_URL=${{ secrets.API_URL }}" >> .env.dev
-          echo "API_TOKEN=${{ secrets.API_TOKEN }}" >> .env.dev
-
       - name: Analyze project source
         run: flutter analyze
         env:
